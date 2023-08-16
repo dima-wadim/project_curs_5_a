@@ -1,9 +1,9 @@
 import psycopg2
-
+import csv
 
 class DBManager:
     """
-    Класс, который подключается к БД PostgreSQL и работает с данными
+    Создаю класс, который подключается к БД PostgreSQL и работает с данными
     """
     def __init__(self, dbname: str, user: str, password: str, host: str = 'localhost', port: str = '5432'):
         self.conn = psycopg2.connect(dbname=dbname, user=user, password=password, host=host, port=port)
@@ -11,8 +11,7 @@ class DBManager:
 
     def get_companies_and_vacancies_count(self):
         """
-        получает список всех компаний и количество вакансий у каждой компании
-        :return: list
+        Создаю класс, который получает список всех компаний и количество вакансий у каждой компании
         """
         with self.conn:
             employers_list = []
@@ -29,8 +28,8 @@ class DBManager:
 
     def get_all_vacancies(self):
         """
-        получает список всех вакансий с указанием названия компании, названия вакансии и зарплаты и ссылки на вакансию
-        :return: list
+        Создаю класс, который получает список вакансий с указанием
+        названия компании, названия вакансии и зарплаты и ссылки на вакансию
         """
         with self.conn:
             vacancy_list = []
@@ -46,8 +45,7 @@ class DBManager:
 
     def get_avg_salary(self):
         """
-        получает среднюю зарплату по вакансиям
-        :return: float
+        Создаю класс, который получает среднюю зарплату по вакансиям
         """
         with self.conn:
             total_sum_salary = 0
@@ -68,8 +66,7 @@ class DBManager:
     @staticmethod
     def get_vacancies_with_higher_salary(avg_salary, all_vacancies):
         """
-        получает список всех вакансий, у которых зарплата выше средней по всем вакансиям
-        :return: list
+        Создаю класс, который получает список всех вакансий, у которых зарплата выше средней по всем вакансиям
         """
         choice_vacancy = []
         for vac in all_vacancies:
@@ -81,8 +78,8 @@ class DBManager:
     @staticmethod
     def get_vacancies_with_keyword(keyword, all_vacancies):
         """
-        получает список всех вакансий, в названии которых содержатся переданные в метод слова, например python.
-        :return: list
+        Создаю класс, который получает список всех вакансий, в названии
+        которых содержатся переданные в метод слова, например python.
         """
         vac_in_keyword = []
         for vac in all_vacancies:
