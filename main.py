@@ -1,6 +1,6 @@
 from utils import get_employers, get_employer_vacancies, create_database, create_table_employer, insert_table_data
 from config import config
-from dbmanager import DBManager
+from bd_file import DBManager
 
 
 def main():

@@ -1,7 +1,12 @@
 import requests
 import psycopg2
 
-
+conn = psycopg2.connect(
+    host='localhost',
+    database='north',
+    user='postgres',
+    password='1611'
+)
 def get_employers(employers_names: list):
     """
     Функция для получения id компаний
