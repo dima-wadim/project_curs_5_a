@@ -11,7 +11,7 @@ def main():
     print(f"БД {db_name} успешно создана")
 
     params.update({'dbname': db_name})
-    names_employers = ["Точка", "idaproject", "Secreate", "getmatch", "Фрифлекс", "Staffwell", "Remokate", "VK", "СберМаркет", "Домклик"]
+    names_employers = ["Effective Mobile", "Spider Group", "МДО", "Elonsoft", "STEM JOBS", "Staffwell", "ООО 24Н Софт", "ООО РДП.РУ", "Neuro-Core", "HFLabs"]
     employers = get_employers(names_employers)
     create_table_employer(params, employers)
     print("Таблицы успешно созданы")
