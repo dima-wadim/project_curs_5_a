@@ -10,8 +10,6 @@ conn = psycopg2.connect(
 def get_employers(employers_names: list):
     """
     Функция для получения id компаний
-    :param employers_names:
-    :return: list{dict}
     """
     employers = []
     for emp_name in employers_names:
@@ -32,8 +30,6 @@ def get_employers(employers_names: list):
 def get_employer_vacancies(employer_id):
     """
     Функция для получения вакансий компании
-    :param employer_id:
-    :return: dict
     """
     params = {
         "employer_id": employer_id,
