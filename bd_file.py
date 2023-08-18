@@ -17,8 +17,8 @@ class DBManager:
             employers_list = []
             for i in range(1, 11):
                 self.cur.execute(f"""
-                SELECT name_employer, COUNT(*) FROM employer{i}
-                GROUP BY name_employer
+                SELECT Компания, COUNT(*) FROM employer{i}
+                GROUP BY Компания
                 """)
                 data = self.cur.fetchall()
                 for item in data:
@@ -35,7 +35,7 @@ class DBManager:
             vacancy_list = []
             for i in range(1, 11):
                 self.cur.execute(f"""
-                SELECT name_employer, title_vacancy, salary, url_vacancy FROM employer{i}
+                SELECT Компания, Вакансия, Зарплата, Контакты FROM employer{i}
                 """)
                 data = self.cur.fetchall()
                 for item in data:
@@ -52,8 +52,8 @@ class DBManager:
             count = 0
             for i in range(1, 11):
                 self.cur.execute(f"""
-                SELECT SUM(salary), COUNT(salary) FROM employer{i}
-                WHERE salary IS NOT NULL
+                SELECT SUM(Зарплата), COUNT(Зарплата) FROM employer{i}
+                WHERE Зарплата IS NOT NULL
                 """)
                 data = self.cur.fetchall()
                 for d in data:

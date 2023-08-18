@@ -59,13 +59,13 @@ def create_table_employer(params, employers):
                 CREATE TABLE IF NOT EXISTS employer{i + 1}(
                 id serial PRIMARY KEY,
                 id_employer int,
-                name_employer varchar(255),
-                title_vacancy varchar(255),
-                city varchar(255),
-                salary int,
-                url_vacancy varchar(500),
-                requirements text,
-                responsibility text
+                Компания varchar(255),
+                Вакансия varchar(255),
+                Город varchar(255),
+                Зарплата int,
+                Контакты varchar(500),
+                Требования text,
+                Задачи text
                 );
                 """)
 
@@ -106,7 +106,7 @@ def insert_table_data(params, employer_vacancies: list[dict], table_name) -> Non
                     else:
                         responsibility = emp_vac['snippet']['responsibility']
                 cur.execute(f"""
-                INSERT INTO  {table_name}(id_employer, name_employer, title_vacancy, city, salary, url_vacancy, requirements, responsibility)
+                INSERT INTO  {table_name}(id_employer, Компания, Вакансия, Город, Зарплата, Контакты, Требования, Задачи)
                 VALUES(%s, %s, %s, %s, %s, %s, %s, %s)
                 """,
                 (id_employer, name_employer, title_vacancy, city, salary, url_vacancy, requirements, responsibility))
