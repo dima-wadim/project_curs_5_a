@@ -4,14 +4,14 @@ from bd_file import DBManager
 
 
 def main():
-    db_name = "vacancy_hh"
+    db_name = "project_hh"
     params = config()
 
     create_database(params, db_name)
     print(f"БД {db_name} успешно создана")
 
     params.update({'dbname': db_name})
-    names_employers = ["Effective Mobile", "Spider Group", "МДО", "Elonsoft", "STEM JOBS", "Staffwell", "ООО 24Н Софт", "ООО РДП.РУ", "Neuro-Core", "HFLabs"]
+    names_employers = ["Effective Mobile", "Spider Group", "МДО", "Elonsoft", "STEM JOBS", "Staffwell", "VK", "СТЭП ЛОДЖИК (STEP LOGIC)", "Яндекс", "HFLabs"]
     employers = get_employers(names_employers)
     create_table_employer(params, employers)
     print("Таблицы успешно созданы")
@@ -20,6 +20,7 @@ def main():
         employer_vacancies = get_employer_vacancies(employer["id"])["items"]
         insert_table_data(params, employer_vacancies, f'employer{index_employer}')
         index_employer += 1
+
     print("Данные в таблицы успешно добавлены")
     print()
 
@@ -37,7 +38,7 @@ def main():
     print()
     print("Список вакансий по ключевому слову: например, Python: ")
     print(bd.get_vacancies_with_keyword("python", all_vacancies))
-
+    index_employer < 11
 
 if __name__ == "__main__":
     main()
